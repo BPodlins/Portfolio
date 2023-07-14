@@ -1,5 +1,5 @@
 import GitHubCalendar from 'react-github-calendar';
-import '../../Pages/style.css'
+import './calendar.css'
 
 function Calendar(){
     return (
