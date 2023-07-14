@@ -1,7 +1,7 @@
 import '../../Pages/style.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import  Nav  from '../Nav';
-import Calendar from '../Calendar';
+import Calendar from '../Calendar/Calendar';
 import Footer from '../Footer';
 
 

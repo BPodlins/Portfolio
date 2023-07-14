@@ -17,12 +17,16 @@
 
   .calendar {
     margin-top: 150px;
-    display: flex; 
-    justifyContent: center; 
-    alignItems: center; 
-    padding: 100px;
-    position: fixed;
-    top: 300px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  position: fixed;
+  top: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1500px; 
+  height: 400px; 
   }
 
   .welcome {
@@ -113,17 +117,18 @@
     -webkit-background-clip: text;
     color: transparent;
     font-size: 50px;
-    padding: 0px 0px; 
+    padding: 0px 0px;
     line-height: 1;
-    transition: color 0.25s ease-out;
+    transition: color 0.25s ease-out, background-color 0.25s ease-out;
   }
-
+  
   .nav-button:hover {
     color: rgba(255, 255, 255, 0.717);
+    background-color: #3c1053; 
     transition-delay: 0.02s;
     opacity: 0.6;
   }
-
+  
   .custom-cursor {
     position: fixed;
     top: 0;
@@ -134,10 +139,11 @@
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out;
   }
   
   .custom-cursor:hover {
-    transform: scale(1.5);
-    background-color: #3c1053;
+    color: #3c1053;
+    transition-delay: 0.02s;
+    opacity: 0.6;
   }

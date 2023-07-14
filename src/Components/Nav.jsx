@@ -16,12 +16,3 @@ function Nav(){
 }
 
 export default Nav
-
-{/* <nav className="navbar">
-            <ul>
-                <li><button className='nav-button'>About Me</button></li>
-                <li><button className='nav-button'>Projects</button></li>
-                <li><button className='nav-button'>Certificates</button></li>
-                <li><button className='nav-button'>Contact me</button></li>
-            </ul>
-        </nav> */}
