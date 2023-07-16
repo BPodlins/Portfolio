@@ -34,3 +34,27 @@
   .icon {
     font-size: 40px;
   }
+
+  .footer-text {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .footer-text hr {
+    border: none;
+    height: 0.5px;
+    background-color: black;
+    margin: 10px 0;
+  }
+  
+  .footer-text p {
+    margin: 5px;
+    font-size: 14px;
+    color: black;
+  }
+  
+  

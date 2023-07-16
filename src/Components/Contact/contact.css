@@ -1,0 +1,47 @@
+.contact-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+  
+  .contact-h1 {
+    font-family: Arial, sans-serif;
+    font-size: 45px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .contact-text {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    text-align: center;
+    margin: 6rem;
+  }
+
+  .contact-text p.email {
+    display: inline-block;
+    transition: color 0.25s ease-out, background-color 0.25s ease-out;
+  }
+  
+  .contact-text p.email:hover {
+    color: rgba(255, 255, 255, 0.717);
+    opacity: 0.6;
+  }
+
+  .notification {
+    position: absolute;
+    bottom: 47%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .notification.hidden {
+    opacity: 0;
+  }

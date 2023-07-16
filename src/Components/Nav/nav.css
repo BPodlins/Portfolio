@@ -40,3 +40,41 @@
     transition-delay: 0.02s;
     opacity: 0.6;
   }
+
+  .nav2 {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .nav2-button {
+    margin: 0 10px;
+    height: 40px;
+    background-color: black;
+    border: none;
+    border-radius: 0px;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    padding: 0px 10px;
+    line-height: 1;
+    transition: color 0.25s ease-out, background-color 0.25s ease-out;
+    text-decoration: none;
+  }
+  
+  .nav2-button:hover {
+    color: rgba(255, 255, 255, 0.717);
+    background-color: #3c1053; 
+    transition-delay: 0.02s;
+    opacity: 0.6;
+  }
+  
+  

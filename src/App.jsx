@@ -1,43 +1,68 @@
-import './App.css'
-import {  BrowserRouter, Routes, Route, Switch, useLocation } from 'react-router-dom';
-import React, { useState, useEffect } from "react"
-import { Switch } from 'react-router-dom';
-import Home from './Components/Home/Home'
-import CustomCursor from './Components/Cursor/CustomCursor'
-import About from './Components/About/About'
-import Projects from './Components/Projects/Projects'
-import Certificates from './Components/Certificates/Certificates'
-import Contact from './Components/Contact/Contact'
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import './App.css';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import Home from './Components/Home/Home';
+import CustomCursor from './Components/Cursor/CustomCursor';
+import About from './Components/About/About';
+import Projects from './Components/Projects/Projects';
+import Certificates from './Components/Certificates/Certificates';
+import Contact from './Components/Contact/Contact';
 
 function App() {
   return (
     <div>
-      <Route render = {({location}) => (
-      <TransitionGroup>
-        <CSSTransition
-            key={location.key}
-            timeout={450}
-            classNames="fade"
-            >
-          <BrowserRouter>
-              <Switch>
-                  <Routes location={location}>
-                    <Route path="/" element={<Home />}></Route>
-                    <Route path="/about" element={<About />}></Route>
-                    <Route path="/projects" element={<Projects />}></Route>
-                    <Route path="/certificates" element={<Certificates />}></Route>
-                    <Route path="/contact" element={<Contact />}></Route>
-                </Routes>
-              </Switch>
-          </BrowserRouter>
-        </CSSTransition>
-      </TransitionGroup>
-      )}/>
-      <CustomCursor/>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
+function AppContent() {
+  const location = useLocation();
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-export default App
+  useEffect(() => {
+    setIsTransitioning(true);
+    const timeoutId = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 450); 
+
+    return () => clearTimeout(timeoutId);
+  }, [location]);
+
+  return (
+    <>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+          className={isTransitioning ? 'fade-out' : 'fade-in'}
+        />
+        <Route
+          path="/about"
+          element={<About />}
+          className={isTransitioning ? 'fade-out' : 'fade-in'}
+        />
+        <Route
+          path="/projects"
+          element={<Projects />}
+          className={isTransitioning ? 'fade-out' : 'fade-in'}
+        />
+        <Route
+          path="/certificates"
+          element={<Certificates />}
+          className={isTransitioning ? 'fade-out' : 'fade-in'}
+        />
+        <Route
+          path="/contact"
+          element={<Contact />}
+          className={isTransitioning ? 'fade-out' : 'fade-in'}
+        />
+      </Routes>
+      <CustomCursor />
+    </>
+  );
+}
+
+export default App;
