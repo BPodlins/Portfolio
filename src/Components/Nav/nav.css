@@ -53,6 +53,21 @@
     flex-direction: row;
     align-items: center;
   }
+
+  .nav2-home {
+    position: absolute;
+    left: 150px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 50px;
+  }
+
+  .nav2-home:hover {
+    color: rgba(255, 255, 255, 0.717);
+    transition-delay: 0.02s;
+    opacity: 0.6;
+  }
   
   .nav2-button {
     margin: 0 10px;
