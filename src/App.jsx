@@ -21,6 +21,13 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:8000/")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
 
   useEffect(() => {
     setIsTransitioning(true);
