@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const routes = require('./routes');
+const cors = require('cors'); 
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/portfolio';
 
@@ -16,7 +18,6 @@ mongoose
     console.error("Error connecting to MongoDB:", error);
   });
 
-
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -25,16 +26,11 @@ db.once("open", () => {
 
 const app = express();
 
-app.get("/", (req, res) => {
-    res.json({ message: "Hello from server!" });
-  });
+app.use(cors()); 
 
-app.post("/post", (req, res) => {
-    console.log("Connected to React");
-    res.redirect("/");
- });
+app.use("/", routes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
-    console.log(`Serving on port ${port}`)
+    console.log(`Serving on port ${port}`);
 })

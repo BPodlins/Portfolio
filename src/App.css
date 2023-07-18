@@ -7,23 +7,36 @@
   cursor: none;
 }
 
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.3s ease-in;
+.page-wrapper {
+  position: relative;
 }
 
-.fade-in.active {
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 450ms ease-in-out;
+}
+
+.fade-exit {
   opacity: 1;
 }
 
-.fade-out {
-  opacity: 1;
-  transition: opacity 0.3s ease-out;
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 450ms ease-in-out;
 }
 
-.fade-out.active {
-  opacity: 0;
+.fade-enter-active,
+.fade-exit-active {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
+
 
 
 
