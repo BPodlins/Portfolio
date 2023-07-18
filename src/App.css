@@ -17,7 +17,7 @@
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 450ms ease-in-out;
+  transition: opacity 500ms ease;
 }
 
 .fade-exit {
@@ -26,7 +26,7 @@
 
 .fade-exit.fade-exit-active {
   opacity: 0;
-  transition: opacity 450ms ease-in-out;
+  transition: opacity 500ms ease;
 }
 
 .fade-enter-active,
@@ -36,6 +36,32 @@
   top: 0;
   left: 0;
 }
+
+.page-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificates-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
 
 
 

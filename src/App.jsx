@@ -11,7 +11,7 @@ import Contact from './Components/Contact/Contact';
 
 function App() {
   return (
-    <div>
+    <div className="background">
       <BrowserRouter>
         <AppContent />
       </BrowserRouter>
@@ -55,100 +55,52 @@ function AppContent() {
 
   return (
     <>
-      <Routes location={location}>
-        <Route path="/" element={<HomeWrapper certificates={certificates} />} />
-        <Route path="/about" element={<AboutWrapper />} />
-        <Route
-          path="/projects"
-          element={<ProjectsWrapper projects={projects} />}
-        />
-        <Route
-          path="/certificates"
-          element={<CertificatesWrapper certificates={certificates} />}
-        />
-        <Route path="/contact" element={<ContactWrapper />} />
-      </Routes>
+      <div className="background"></div>
+      <TransitionGroup>
+        <CSSTransition
+          key={location.key}
+          classNames="fade"
+          timeout={450}
+          mountOnEnter
+          unmountOnExit
+        >
+          <div className="page-wrapper">
+            <Routes location={location}>
+              <Route
+                path="/"
+                element={<Home certificates={certificates} />}
+              />
+              <Route path="/about" element={<About />} />
+              <Route
+                path="/projects"
+                element={<Projects projects={projects} />}
+              />
+              <Route
+                path="/certificates"
+                element={<CertificatesPage certificates={certificates} />}
+              />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </div>
+        </CSSTransition>
+      </TransitionGroup>
       <CustomCursor />
     </>
   );
 }
 
-function HomeWrapper({ certificates }) {
+function CertificatesPage({ certificates }) {
   return (
-    <div className="page-wrapper">
-      <TransitionGroup component={null}>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={450}
-        >
-          <Home certificates={certificates} />
-        </CSSTransition>
-      </TransitionGroup>
+    <div className="certificates-container">
+      <Certificates certificates={certificates} />
     </div>
   );
 }
 
-function AboutWrapper() {
+function ContactPage() {
   return (
-    <div className="page-wrapper">
-      <TransitionGroup component={null}>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={450}
-        >
-          <About />
-        </CSSTransition>
-      </TransitionGroup>
-    </div>
-  );
-}
-
-function ProjectsWrapper({ projects }) {
-  return (
-    <div className="page-wrapper">
-      <TransitionGroup component={null}>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={450}
-        >
-          <Projects projects={projects} />
-        </CSSTransition>
-      </TransitionGroup>
-    </div>
-  );
-}
-
-function CertificatesWrapper({ certificates }) {
-  return (
-    <div className="page-wrapper">
-      <TransitionGroup component={null}>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={450}
-        >
-          <Certificates certificates={certificates} />
-        </CSSTransition>
-      </TransitionGroup>
-    </div>
-  );
-}
-
-function ContactWrapper() {
-  return (
-    <div className="page-wrapper">
-      <TransitionGroup component={null}>
-        <CSSTransition
-          key={location.key}
-          classNames="fade"
-          timeout={450}
-        >
-          <Contact />
-        </CSSTransition>
-      </TransitionGroup>
+    <div className="contact-container">
+      <Contact />
     </div>
   );
 }

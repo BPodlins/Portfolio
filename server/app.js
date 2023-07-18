@@ -3,9 +3,9 @@ const path = require('path');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 const cors = require('cors'); 
+require('dotenv').config();
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/portfolio';
-
+const dbUrl = process.env.DB_URL;
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
