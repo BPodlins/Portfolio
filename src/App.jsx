@@ -22,13 +22,22 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [message, setMessage] = useState("");
+  const [certificates, setCertificates] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [prevLocation, setPrevLocation] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/")
+    // Fetch certificates
+    fetch('http://localhost:8000/certificates')
       .then((res) => res.json())
-      .then((data) => setMessage(data.message));
+      .then((data) => setCertificates(data))
+      .catch((error) => console.error('Error fetching certificates:', error));
+
+    // Fetch projects
+    fetch('http://localhost:8000/projects')
+      .then((res) => res.json())
+      .then((data) => setProjects(data))
+      .catch((error) => console.error('Error fetching projects:', error));
   }, []);
 
   useEffect(() => {
@@ -47,10 +56,16 @@ function AppContent() {
   return (
     <>
       <Routes location={location}>
-        <Route path="/" element={<HomeWrapper />} />
+        <Route path="/" element={<HomeWrapper certificates={certificates} />} />
         <Route path="/about" element={<AboutWrapper />} />
-        <Route path="/projects" element={<ProjectsWrapper />} />
-        <Route path="/certificates" element={<CertificatesWrapper />} />
+        <Route
+          path="/projects"
+          element={<ProjectsWrapper projects={projects} />}
+        />
+        <Route
+          path="/certificates"
+          element={<CertificatesWrapper certificates={certificates} />}
+        />
         <Route path="/contact" element={<ContactWrapper />} />
       </Routes>
       <CustomCursor />
@@ -58,7 +73,7 @@ function AppContent() {
   );
 }
 
-function HomeWrapper() {
+function HomeWrapper({ certificates }) {
   return (
     <div className="page-wrapper">
       <TransitionGroup component={null}>
@@ -67,7 +82,7 @@ function HomeWrapper() {
           classNames="fade"
           timeout={450}
         >
-          <Home />
+          <Home certificates={certificates} />
         </CSSTransition>
       </TransitionGroup>
     </div>
@@ -90,7 +105,7 @@ function AboutWrapper() {
   );
 }
 
-function ProjectsWrapper() {
+function ProjectsWrapper({ projects }) {
   return (
     <div className="page-wrapper">
       <TransitionGroup component={null}>
@@ -99,14 +114,14 @@ function ProjectsWrapper() {
           classNames="fade"
           timeout={450}
         >
-          <Projects />
+          <Projects projects={projects} />
         </CSSTransition>
       </TransitionGroup>
     </div>
   );
 }
 
-function CertificatesWrapper() {
+function CertificatesWrapper({ certificates }) {
   return (
     <div className="page-wrapper">
       <TransitionGroup component={null}>
@@ -115,7 +130,7 @@ function CertificatesWrapper() {
           classNames="fade"
           timeout={450}
         >
-          <Certificates />
+          <Certificates certificates={certificates} />
         </CSSTransition>
       </TransitionGroup>
     </div>

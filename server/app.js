@@ -29,8 +29,9 @@ const app = express();
 app.use(cors()); 
 
 app.use("/", routes);
+app.set('view engine', 'ejs');
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`Serving on port ${port}`);
-})
+});

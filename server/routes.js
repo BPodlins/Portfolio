@@ -1,25 +1,38 @@
 const express = require('express');
-var router = express.Router();
+const router = express.Router();
+const Certificate = require('./Models/certificate.js');
+const Project = require('./Models/project.js');
 
+router.get("/", (req, res) => {
+    res.render("home");
+});
 
- router.get("/", (req, res) => {
-    res.json({});
-  });
+router.get("/about", (req, res) => {
+    res.render("about");
+});
 
-  router.get("/about", (req, res) => {
-    res.json({});
-  });
+router.get('/certificates', async (req, res) => {
+    try {
+        const certificates = await Certificate.find();
+        res.json(certificates);
+    } catch (error) {
+        console.error('Error fetching certificates:', error);
+        res.status(500).json({ error: 'Failed to fetch certificates' });
+    }
+});
 
-  router.get("/certificates", (req, res) => {
-    res.json({});
-  });
+router.get('/projects', async (req, res) => {
+    try {
+        const projects = await Project.find();
+        res.json(projects);
+    } catch (error) {
+        console.error('Error fetching projects:', error);
+        res.status(500).json({ error: 'Failed to fetch projects' });
+    }
+});
 
-  router.get("/projects", (req, res) => {
-    res.json({});
-  });
+router.get("/contact", (req, res) => {
+    res.render("contact");
+});
 
-  router.get("/contact", (req, res) => {
-    res.json({});
-  });
-
-  module.exports = router;
+module.exports = router;
