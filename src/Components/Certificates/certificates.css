@@ -1,42 +1,78 @@
-.certificate-card {
-    width: 400px;
-    height: 650px;
-    margin: 170px auto; 
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-  
-  .photo {
-    width: 200px;
-    height: 400px; 
-    border-radius: 50%;
-    object-fit: cover;
-    margin-top: 150px;
-    margin-bottom: 10px; 
+  to {
+    opacity: 1;
   }
-  
-  .text {
-    text-align: center;
-    margin-top: auto; 
-    margin-bottom: 300px; 
-  }
-  
-  .credential {
-    font-size: 25px;
-    margin-top: auto;
-    background-color: transparent;
-    border: none;
-    margin-bottom: 50px;
-  }
+}
 
-  .credential:hover {
-    color: rgba(255, 255, 255, 0.717);
-    opacity: 0.6;
-    transition-delay: 0.02s;
+@keyframes flip {
+  from {
+    transform: rotateY(0);
   }
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+.certificate-card {
+  display: none;
+}
+
+.certificate-card.visible {
+  display: block;
+}
+
+
+.certificates-container {
+  display: flex;
+  justify-content: center;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.certificate-card {
+  perspective: 1000px;
+  width: 100%;
+  height: 200px;
+  cursor: pointer;
+  position: relative;
+  animation: fade-in 0.5s ease;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.certificate-card.selected .card-inner {
+  transform: rotateY(180deg);
+}
+
+
+

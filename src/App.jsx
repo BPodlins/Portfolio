@@ -27,13 +27,13 @@ function AppContent() {
   const [prevLocation, setPrevLocation] = useState(null);
 
   useEffect(() => {
-    // Fetch certificates
+    
     fetch('http://localhost:8000/certificates')
       .then((res) => res.json())
       .then((data) => setCertificates(data))
       .catch((error) => console.error('Error fetching certificates:', error));
 
-    // Fetch projects
+    
     fetch('http://localhost:8000/projects')
       .then((res) => res.json())
       .then((data) => setProjects(data))

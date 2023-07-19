@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Certificate = require('./certificate.js');
+const Project = require('./project.js');
 require('dotenv').config();
 
 const dbUrl = process.env.DB_URL;
@@ -46,31 +48,21 @@ const projectsData = [
     imageUrl: 'https://res.cloudinary.com/drwr2gaks/image/upload/v1689679601/Portfolio/Projects/elev2_jsxjzb.png',
     text: 'ElevView is a website showcasing urban exploration (urbex) spots on a map. Users can explore various urbex locations and get information about them.',
     url: 'https://github.com/BPodlins/ElevatedView',
+    category: ['JavaScript', 'Node.js', 'MongoDB']
   },
   {
     imageUrl: 'https://res.cloudinary.com/drwr2gaks/image/upload/v1689679599/Portfolio/Projects/ToDo_bgptph.png',
     text: 'ToDoList is a task management application built with React. Users can create, update, and delete tasks, and mark them as completed.',
     url: 'https://github.com/BPodlins/TodoList',
+    category: 'JavaScript, React'
   },
   {
     imageUrl: 'https://res.cloudinary.com/drwr2gaks/image/upload/v1689680628/Portfolio/Projects/Random_xwamnk.png',
-    text: 'RandomWordsGame is a Java game that generates random sentences using words from the Polish dictionary. Players can have fun creating unique and quirky sentences.',
+    text: 'RandomWordsGame is a Java game that generates random sentences using words from the Polish dictionary. Players can have fun drawing unique and quirky sentences.',
     url: 'https://github.com/BPodlins/RandomWordsGame',
+    category: 'Java, Selenium'
   },
 ];
-
-const Certificate = mongoose.model('Certificate', new mongoose.Schema({
-  imageUrl: String,
-  text: String,
-  url: String,
-}));
-
-const Project = mongoose.model('Project', new mongoose.Schema({
-  imageUrl: String,
-  text: String,
-  url: String,
-  description: String,
-}));
 
 function createCertificates() {
   Certificate.insertMany(certificatesData)
@@ -80,7 +72,7 @@ function createCertificates() {
     })
     .catch((error) => {
       console.error('Error creating certificates:', error);
-      createProjects();
+      mongoose.disconnect();
     });
 }
 
@@ -95,3 +87,4 @@ function createProjects() {
       mongoose.disconnect();
     });
 }
+
