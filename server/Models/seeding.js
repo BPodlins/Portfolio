@@ -54,13 +54,13 @@ const projectsData = [
     imageUrl: 'https://res.cloudinary.com/drwr2gaks/image/upload/v1689679599/Portfolio/Projects/ToDo_bgptph.png',
     text: 'ToDoList is a task management application built with React. Users can create, update, and delete tasks, and mark them as completed.',
     url: 'https://github.com/BPodlins/TodoList',
-    category: 'JavaScript, React'
+    category: ['JavaScript', 'React']
   },
   {
     imageUrl: 'https://res.cloudinary.com/drwr2gaks/image/upload/v1689680628/Portfolio/Projects/Random_xwamnk.png',
     text: 'RandomWordsGame is a Java game that generates random sentences using words from the Polish dictionary. Players can have fun drawing unique and quirky sentences.',
     url: 'https://github.com/BPodlins/RandomWordsGame',
-    category: 'Java, Selenium'
+    category: ['Java', 'Selenium']
   },
 ];
 

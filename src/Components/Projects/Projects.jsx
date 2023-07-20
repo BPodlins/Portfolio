@@ -1,19 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './projects.css';
 import { Container } from 'react-bootstrap';
 import Nav2 from '../Nav/Nav2';
 import Footer from '../Footer/Footer';
 import { AiFillGithub } from 'react-icons/ai';
+import {Button} from 'react-bootstrap';
 
 function Projects({ projects }) {
-  const [checkedItems, setCheckedItems] = useState({});
+  const [checkedItems, setCheckedItems] = useState({
+    Java: false,
+    JavaScript: false,
+    Spring: false,
+    React: false,
+    NodeJS: false,
+    MongoDB: false,
+  });
 
   const handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
     setCheckedItems((prevCheckedItems) => ({
       ...prevCheckedItems,
-      [event.target.name]: event.target.checked,
+      [name]: checked,
     }));
   };
+
+  const filterProjects = (project) => {
+    const projectCategories = project.category;
+    const checkedCategories = Object.entries(checkedItems)
+      .filter(([category, isChecked]) => isChecked)
+      .map(([category]) => category);
+  
+    return checkedCategories.length === 0 || projectCategories.some(category => checkedCategories.includes(category));
+  };
+
+
+  useEffect(() => {
+    console.log('Updated checkedItems:', checkedItems);
+  }, [checkedItems]);
+
+  console.log('Original projects:', projects);
 
   return (
     <div className='background'>
@@ -26,7 +51,7 @@ function Projects({ projects }) {
               <input
                 type="checkbox"
                 name="Java"
-                checked={checkedItems.Java || false}
+                defaultChecked={checkedItems.Java}
                 onChange={handleCheckboxChange}
               />{' '}
               Java
@@ -37,7 +62,7 @@ function Projects({ projects }) {
               <input
                 type="checkbox"
                 name="JavaScript"
-                checked={checkedItems.JavaScript || false}
+                defaultChecked={checkedItems.JavaScript}
                 onChange={handleCheckboxChange}
               />{' '}
               JavaScript
@@ -47,11 +72,11 @@ function Projects({ projects }) {
             <label>
               <input
                 type="checkbox"
-                name="Spring"
-                checked={checkedItems.Spring || false}
+                name="Selenium"
+                defaultChecked={checkedItems.Spring}
                 onChange={handleCheckboxChange}
               />{' '}
-              Spring
+              Selenium
             </label>
           </li>
           <li>
@@ -59,7 +84,7 @@ function Projects({ projects }) {
               <input
                 type="checkbox"
                 name="React"
-                checked={checkedItems.React || false}
+                defaultChecked={checkedItems.React}
                 onChange={handleCheckboxChange}
               />{' '}
               React
@@ -70,7 +95,7 @@ function Projects({ projects }) {
               <input
                 type="checkbox"
                 name="NodeJS"
-                checked={checkedItems.NodeJS || false}
+                defaultChecked={checkedItems.NodeJS}
                 onChange={handleCheckboxChange}
               />{' '}
               Node.js
@@ -81,7 +106,7 @@ function Projects({ projects }) {
               <input
                 type="checkbox"
                 name="MongoDB"
-                checked={checkedItems.MongoDB || false}
+                defaultChecked={checkedItems.MongoDB}
                 onChange={handleCheckboxChange}
               />{' '}
               MongoDB
@@ -90,18 +115,14 @@ function Projects({ projects }) {
         </ul>
       </Container>
       <Container className="project">
-        {projects.map((project) => (
-          Object.keys(checkedItems).every(
-            (item) => checkedItems[item] && project.category.includes(item)
-          ) && (
-            <Container key={project._id} className="project-card">
-              <img className="photo" src={project.imageUrl} alt="Project" />
-              <div className="text">{project.text}</div>
-              <a href={project.url} className="code-link">
-                <AiFillGithub className="icon" />
-              </a>
-            </Container>
-          )
+        {projects.filter(filterProjects).map((project) => (
+          <Container key={project._id} className="project-card">
+            <img className="photo" src={project.imageUrl} alt="Project" />
+            <div className="text">{project.text}</div>
+            <Button href={project.url} className="code-link">
+              <AiFillGithub className="icon" />
+            </Button>
+          </Container>
         ))}
       </Container>
       <Footer />
