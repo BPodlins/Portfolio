@@ -5,3 +5,4 @@ My portfolio web app
 - JavaScript
 - CSS
 - React
+- MongoDB Atlas
