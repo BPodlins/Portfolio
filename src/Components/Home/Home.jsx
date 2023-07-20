@@ -1,9 +1,9 @@
 import '../../Pages/style.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import  Nav  from '../Nav/Nav';
-import Calendar from '../Calendar/Calendar';
 import Footer from '../Footer/Footer';
 import Fader from './Fader';
+import GitHubCalendar from 'react-github-calendar';
 
 
 function Home(){
@@ -20,7 +20,27 @@ function Home(){
                     <div className="text-container">
                         <h2 className="welcome2">Bartosz Podliński</h2>
                     </div>
-                    <Calendar />
+                    <div style={{
+                        marginTop: '150px',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        padding: '100px',
+                        position: 'fixed',
+                        top: '300px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: '1500px',
+                        height: '400px'
+                        }}>
+                        <GitHubCalendar
+                            username="bpodlins"
+                            blockMargin={6}
+                            blockRadius={3}
+                            blockSize={24}
+                            fontSize={18}
+                        />
+                        </div>
                     <Footer />
                     </Col>
                 </Row>
