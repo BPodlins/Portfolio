@@ -10,7 +10,7 @@ function Certificates({ certificates }) {
   }
 
   const [visibleCertificateIndex, setVisibleCertificateIndex] = useState(0);
-  const delay = 7000;
+  const delay = 2500;
   const intervalRef = useRef(null);
 
   useEffect(() => {

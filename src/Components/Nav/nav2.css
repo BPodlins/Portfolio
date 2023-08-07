@@ -1,0 +1,123 @@
+.nav2 {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  flex-direction: row; 
+  align-items: center;
+}
+
+.nav2-menu-icon {
+  color: black;
+}
+
+.nav2-icon {
+  position: absolute;
+  left: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: black;
+  font-size: 50px;
+}
+
+.nav2-icon {
+  color: black;
+  font-size: 40px
+}
+
+.nav2-icon:hover {
+  color: rgba(255, 255, 255, 0.717);
+  transition-delay: 0.02s;
+  opacity: 0.6;
+}
+
+.nav2-button {
+  margin: 0 10px;
+  height: 40px;
+  background-color: black;
+  border: none;
+  border-radius: 0px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 30px;
+  padding: 0px 10px;
+  line-height: 1;
+  transition: color 0.25s ease-out, background-color 0.25s ease-out;
+  text-decoration: none;
+}
+
+.nav2-button:hover {
+  color: rgba(255, 255, 255, 0.717);
+  background-color: #3c1053;
+  transition-delay: 0.02s;
+  opacity: 0.6;
+}
+
+.nav2-menu {
+  display: flex;
+  flex-direction: row; 
+}
+
+.nav2-menu-collapsed {
+  display: none;
+}
+
+.nav2-home.home-default {
+  display: flex;
+}
+
+.home-default .nav2-menu-icon {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .nav2 {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .home-collapsible .nav2-home {
+    display: none;
+  }
+
+  .home-collapsible .nav2-menu-icon {
+    display: block;
+  }
+
+  .home-collapsible .nav2-menu {
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .home-collapsible .nav2-menu-collapsed {
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .nav2-button {
+    margin: 10px 0;
+    height: auto;
+    background-color: transparent;
+    color: black;
+    font-size: 20px;
+  }
+
+  .nav2-button:hover {
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  .nav2-menu-icon {
+    position: relative; /
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}

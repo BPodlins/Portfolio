@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-
-*{
+* {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
@@ -60,9 +58,22 @@
   justify-content: center;
 }
 
+.background {
+  overflow-y: auto; /* Set to 'auto' to enable scrolling when content overflows */
+  display: flex;
+  width: 100%;
+  min-height: 100vh; /* Set a minimum height to prevent elements from overlapping */
+  background-color: #3c1053;
+  background-image: linear-gradient(43deg, #3c1053 30%, #ad5389 100%);
+}
 
 
+@media (max-width: 1250px) {
+  .github-calendar-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-
-
-
+}

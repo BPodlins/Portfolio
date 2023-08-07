@@ -10,28 +10,7 @@
       #ad5389 100%
     );
   }
-
-  .welcome {
-    display: flex;
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    font-size: 70px;
-    margin: 10px;
-    position: fixed;
-  }
   
-  .welcome2 {
-    display: flex;
-    position: absolute;
-    top: 130px;
-    left: 50px;
-    font-size: 60px;
-    margin: 10px;
-    position: fixed;
-  }  
-
-
   
   
   

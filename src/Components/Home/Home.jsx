@@ -15,12 +15,13 @@ function Home(){
             <Container>
                 <Row>
                     <Col md={7}>
-                    <Nav />
-                    <Fader texts={welcomeTexts} />
+                    
                     <div className="text-container">
+                    <Fader texts={welcomeTexts} />
                         <h2 className="welcome2">Bartosz Podliński</h2>
                     </div>
-                    <div style={{
+                    <Nav />
+                    <div className='github-calendar-container' style={{
                         marginTop: '150px',
                         display: 'flex',
                         justifyContent: 'center',
