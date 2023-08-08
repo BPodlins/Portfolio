@@ -46,7 +46,9 @@
   .nav {
     padding: 30px;
     justify-content: center;
-    position: static; 
+    position: absolute;
+    top: 200px; 
+    left: 100px;
   }
 
   .nav ul {
@@ -69,6 +71,7 @@
     padding: 50px;
     justify-content: center;
     position: relative;
+    top: 200px;
   }
 
   .nav li {
@@ -79,7 +82,9 @@
 
 @media (max-width: 480px) {
   .nav {
+    top:230px;
     padding: 30px;
+    left: 70px;
   }
 
   .nav li {

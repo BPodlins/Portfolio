@@ -82,6 +82,13 @@
     padding: 10px;
   }
 
+  .nav2-menu {
+    position: absolute;
+    flex-direction: column;
+    left: 130px;
+    top: 0px
+  }
+
   .home-collapsible .nav2-home {
     display: none;
   }
@@ -102,10 +109,10 @@
 
   .nav2-button {
     margin: 10px 0;
-    height: auto;
     background-color: transparent;
     color: black;
-    font-size: 20px;
+    font-size: 30px;
+    flex-direction: column;
   }
 
   .nav2-button:hover {
@@ -119,5 +126,17 @@
     transform: translateX(-50%); 
     font-size: 30px;
     margin-bottom: 20px;
+    right: 80px;
+    top: 50px;
   }
+
+  .home-collapsible {
+    position: relative; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  
 }
