@@ -1,16 +1,27 @@
 .background {
-    overflow: hidden;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: #3c1053;
+  background-image: linear-gradient(
+    43deg,
+    #3c1053 30%,
+    #ad5389 100%
+  );
+}
+
+@media (max-height: 5000px) {
+  .github-calendar-container {
+    margin-top: 100px;
     display: flex;
-    width: 100%;
-    height: 100vh;
-    background-color: #3c1053;
-    background-image: linear-gradient(
-      43deg,
-      #3c1053 30%,
-      #ad5389 100%
-    );
+    justify-content: center;
+    align-items: center;
   }
-  
-  
-  
-  
+
+  .background {
+    overflow: visible;
+    overflow: auto; 
+  }
+}
+

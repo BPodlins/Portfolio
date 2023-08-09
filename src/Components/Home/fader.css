@@ -1,10 +1,10 @@
 .welcome-container {
-  position: relative;
+  position: fixed;
 }
 
 .welcome {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 50px;
   left: 50px;
   font-size: 70px;

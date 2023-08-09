@@ -1,23 +1,29 @@
 .footer {
-  text-align: center;
+  position: relative;
+  top: 1050px;
+  width: 100vw; 
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: fixed;
-  bottom: 65px;
-  left: 0;
-  right: 0;
-  padding: 10px;
+}
+
+.footer h1 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 1.5em;
 }
 
 .footer-buttons {
-  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .social-button {
-  margin-top: 2rem;
-  width: 90px;
-  height: 45px;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
   background-color: transparent;
   border: none;
   border-radius: 15px;
@@ -32,52 +38,19 @@
 }
 
 .icon {
+  vertical-align: middle;
   font-size: 40px;
 }
 
 .footer-text {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
   text-align: center;
-  padding: 10px 0;
 }
 
-.footer-text hr {
+.footer hr {
   border: none;
   height: 0.5px;
   background-color: black;
+  width: 100vw; 
   margin: 10px 0;
 }
 
-.footer-text p {
-  margin: 5px;
-  font-size: 14px;
-  color: black;
-}
-
-@media (max-width: 768px) {
-  .footer {
-    bottom: 100px;
-  }
-
-  .footer-text p {
-    font-size: 12px;
-  }
-
-  .footer-buttons {
-    margin-top: 5px;
-  }
-}
-
-@media (max-width: 480px) {
-
-  .footer {
-    bottom: 70px;
-  }
-
-  .footer-text p {
-    font-size: 10px;
-  }
-}
