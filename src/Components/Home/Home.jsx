@@ -22,19 +22,22 @@ function Home(){
                     </div>
                     <Nav />
                     <div className='github-calendar-container' style={{
-                        marginTop: '150px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        padding: '100px',
-                        position: 'fixed',
-                        top: '300px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '1500px',
-                        height: '400px'
+                          top: '-150px',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          padding: '0px',
+                          width: '100vw', 
+                          minHeight: '400px',
+                          maxHeight: 'calc(100vh - 300px)',
+                          overflowY: 'auto', 
+                          boxSizing: 'border-box',
+                          position: 'relative',
+                          bottom: '-400px',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
                         }}>
-                        <GitHubCalendar
+                        <GitHubCalendar className=''
                             username="bpodlins"
                             blockMargin={6}
                             blockRadius={3}

@@ -4,7 +4,7 @@
   top: 0;
   right: 0;
   padding: 100px;
-  position: fixed;
+  position: relative;
 }
 
 .nav ul {
@@ -46,7 +46,7 @@
   .nav {
     padding: 30px;
     justify-content: center;
-    position: absolute;
+    position: relative;
     top: 200px; 
     left: 100px;
   }
@@ -71,7 +71,7 @@
     padding: 50px;
     justify-content: center;
     position: relative;
-    top: 200px;
+    top: 300px;
   }
 
   .nav li {
@@ -82,7 +82,7 @@
 
 @media (max-width: 480px) {
   .nav {
-    top:230px;
+    top:300px;
     padding: 30px;
     left: 70px;
   }

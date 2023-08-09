@@ -1,10 +1,10 @@
-.welcome-container {
-  position: fixed;
+.text-container {
+  position: relative;
 }
 
 .welcome {
   display: flex;
-  position: fixed;
+  position: absolute;
   top: 50px;
   left: 50px;
   font-size: 70px;
@@ -28,5 +28,31 @@
   opacity: 0;
 }
 
+.github-calendar-container {
+  top: -150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100vw;
+  min-height: 400px;
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+@media (max-width: 1250px){
+  .github-calendar-container{
+    top: -1000px;
+  }
+}
+
+@media (max-width: 650px){
+  .welcome2 {
+    top: 220px;
+  }
+}
 
