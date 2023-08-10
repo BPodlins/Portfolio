@@ -46,7 +46,7 @@
 
 @media (max-width: 1250px){
   .github-calendar-container{
-    top: -1000px;
+    top: 50px;
   }
 }
 
@@ -55,4 +55,5 @@
     top: 220px;
   }
 }
+
 

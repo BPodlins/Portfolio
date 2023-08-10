@@ -21,22 +21,7 @@ function Home(){
                         <h2 className="welcome2">Bartosz Podliński</h2>
                     </div>
                     <Nav />
-                    <div className='github-calendar-container' style={{
-                          top: '-150px',
-                          display: 'flex',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          padding: '0px',
-                          width: '100vw', 
-                          minHeight: '400px',
-                          maxHeight: 'calc(100vh - 300px)',
-                          overflowY: 'auto', 
-                          boxSizing: 'border-box',
-                          position: 'relative',
-                          bottom: '-400px',
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                        }}>
+                    <div className='github-calendar-container'>
                         <GitHubCalendar className=''
                             username="bpodlins"
                             blockMargin={6}
