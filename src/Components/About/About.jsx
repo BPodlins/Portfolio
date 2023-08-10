@@ -15,8 +15,8 @@ function About(){
                 Basketball is not just a sport, but a metaphor for teamwork and problem-solving, which I apply to my coding journey.
                 I am eager to contribute to the field of web development and create meaningful projects that make a positive impact. Coding provides me with endless possibilities and constant learning, and I am excited to be part of this dynamic industry.
                 </div>
+                <Footer/>
             </Container>
-            <Footer/>
         </div>
     )
 }

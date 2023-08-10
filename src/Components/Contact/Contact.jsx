@@ -40,8 +40,8 @@ function Contact() {
               </div>
             )}
           </div>
+          <Footer />
         </Container>
-        <Footer />
       </div>
     );
   }

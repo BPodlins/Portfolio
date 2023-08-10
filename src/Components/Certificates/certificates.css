@@ -1,6 +1,9 @@
-/* Add your existing CSS styles here */
+.background {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
 
-/* Fix for rotation animation */
 .certificate-card {
   position: absolute;
   top: 0;
