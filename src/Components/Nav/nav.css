@@ -49,6 +49,8 @@
     position: relative;
     top: 200px; 
     left: 100px;
+    left: 50%;
+  transform: translateX(-50%);
   }
 
   .nav ul {
@@ -84,7 +86,6 @@
   .nav {
     top:300px;
     padding: 30px;
-    left: 70px;
   }
 
   .nav li {
