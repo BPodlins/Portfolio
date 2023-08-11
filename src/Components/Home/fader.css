@@ -30,7 +30,6 @@
 
 .github-calendar-container {
   top: -150px;
-  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +50,12 @@
   }
 }
 
-@media (max-width: 650px){
+@media (max-width: 768px){
   .welcome2 {
     top: 220px;
+  }
+  .github-calendar-container{
+    top: 145px;
   }
 }
 

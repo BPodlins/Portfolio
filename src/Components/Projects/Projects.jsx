@@ -43,89 +43,89 @@ function Projects({ projects }) {
   return (
     <div className='background'>
       <Nav2 />
-      <Container className='tech'>
-        <h2 className='h1-tech'>Tech</h2>
-        <ul className="clickable-list">
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                name="Java"
-                defaultChecked={checkedItems.Java}
-                onChange={handleCheckboxChange}
-              />{' '}
-              Java
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                name="JavaScript"
-                defaultChecked={checkedItems.JavaScript}
-                onChange={handleCheckboxChange}
-              />{' '}
-              JavaScript
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                name="Selenium"
-                defaultChecked={checkedItems.Spring}
-                onChange={handleCheckboxChange}
-              />{' '}
-              Selenium
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                name="React"
-                defaultChecked={checkedItems.React}
-                onChange={handleCheckboxChange}
-              />{' '}
-              React
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                name="NodeJS"
-                defaultChecked={checkedItems.NodeJS}
-                onChange={handleCheckboxChange}
-              />{' '}
-              Node.js
-            </label>
-          </li>
-          <li>
-            <label>
-              <input
-                type="checkbox"
-                name="MongoDB"
-                defaultChecked={checkedItems.MongoDB}
-                onChange={handleCheckboxChange}
-              />{' '}
-              MongoDB
-            </label>
-          </li>
-        </ul>
-      </Container>
-      <Container className="project">
-        {projects.filter(filterProjects).map((project) => (
-          <Container key={project._id} className="project-card">
-            <img className="photo" src={project.imageUrl} alt="Project" />
-            <div className="text">{project.text}</div>
-            <Button href={project.url} className="code-link">
-              <AiFillGithub className="icon" />
-            </Button>
-          </Container>
-        ))}
-        <Footer />
-      </Container>
+        <div className='tech-container'>
+          <h2 className='h1-tech'>Tech</h2>
+          <ul className="clickable-list">
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="Java"
+                  defaultChecked={checkedItems.Java}
+                  onChange={handleCheckboxChange}
+                />{' '}
+                Java
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="JavaScript"
+                  defaultChecked={checkedItems.JavaScript}
+                  onChange={handleCheckboxChange}
+                />{' '}
+                JavaScript
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="Selenium"
+                  defaultChecked={checkedItems.Spring}
+                  onChange={handleCheckboxChange}
+                />{' '}
+                Selenium
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="React"
+                  defaultChecked={checkedItems.React}
+                  onChange={handleCheckboxChange}
+                />{' '}
+                React
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="NodeJS"
+                  defaultChecked={checkedItems.NodeJS}
+                  onChange={handleCheckboxChange}
+                />{' '}
+                Node.js
+              </label>
+            </li>
+            <li>
+              <label>
+                <input
+                  type="checkbox"
+                  name="MongoDB"
+                  defaultChecked={checkedItems.MongoDB}
+                  onChange={handleCheckboxChange}
+                />{' '}
+                MongoDB
+              </label>
+            </li>
+          </ul>
+        </div>
+        <Container className="project">
+              {projects.filter(filterProjects).map((project) => (
+                <Container key={project._id} className="project-card">
+                  <img className="photo" src={project.imageUrl} alt="Project" />
+                  <div className="text">{project.text}</div>
+                  <Button href={project.url} className="code-link">
+                    <AiFillGithub className="icon" />
+                  </Button>
+                </Container>
+              ))}
+               <Footer />
+        </Container>
     </div>
   );
 }
