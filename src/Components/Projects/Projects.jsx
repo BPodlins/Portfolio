@@ -124,8 +124,8 @@ function Projects({ projects }) {
             </Button>
           </Container>
         ))}
+        <Footer />
       </Container>
-      <Footer />
     </div>
   );
 }

@@ -2,7 +2,45 @@ import React, { useState, useEffect, useRef } from 'react';
 import './certificates.css';
 import Nav2 from '../Nav/Nav2';
 import Footer from '../Footer/Footer';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
+
+function CertificateCard({ certificate, isVisible, onClick }) {
+  const [flipped, setFlipped] = useState(false);
+
+  useEffect(() => {
+    if (isVisible) {
+      setFlipped(false);
+    }
+  }, [isVisible]);
+
+  const handleFlip = () => {
+    setFlipped(!flipped);
+    onClick();
+  };
+
+  return (
+    <div className={`certificate-card ${flipped ? 'flipped' : ''}`} onClick={handleFlip}>
+      <div className="card-inner">
+        <div className={`front ${flipped ? 'flipped' : ''}`}>
+          <img className='image' src={certificate.imageUrl} alt={certificate.text} />
+          <div className="certificate-info">
+            <p className="certificate-name">{certificate.text}</p>
+            <div className="credentials">
+              <p className="credentials-link">
+                <Button className="credentials-link" href={certificate.url} target="_blank" rel="noopener noreferrer">
+                  Credentials
+                </Button>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={`back ${flipped ? 'flipped' : ''}`}>
+          <p>{certificate.additionalInfo}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Certificates({ certificates }) {
   if (certificates.length === 0) {
@@ -34,9 +72,9 @@ function Certificates({ certificates }) {
   };
 
   return (
-    <div>
+    <div className='background'>
       <Nav2 />
-      <div className="certificates-container">
+      <Container className="certificates-container">
         <div className="certificates-grid">
           <CertificateCard
             key={certificates[visibleCertificateIndex]._id}
@@ -44,48 +82,9 @@ function Certificates({ certificates }) {
             onClick={handleCardClick}
           />
         </div>
-      </div>
-      <Footer />
+        <Footer />
+      </Container>
     </div>
   );
 }
-
-function CertificateCard({ certificate, isVisible, onClick }) {
-  const [flipped, setFlipped] = useState(false);
-
-  useEffect(() => {
-    if (isVisible) {
-      setFlipped(false);
-    }
-  }, [isVisible]);
-
-  const handleFlip = () => {
-    setFlipped(!flipped);
-    onClick();
-  };
-
-  return (
-    <div className={`certificate-card ${flipped ? 'flipped' : ''}`} onClick={handleFlip}>
-      <div className="card-inner">
-        <div className={`front ${flipped ? 'flipped' : ''}`}>
-          <img src={certificate.imageUrl} alt={certificate.text} />
-          <div className="certificate-info">
-            <p className="certificate-name">{certificate.text}</p>
-            <div className="credentials">
-              <p className="credentials-link">
-                <Button className="credentials-link" href={certificate.url} target="_blank" rel="noopener noreferrer">
-                  Credentials
-                </Button>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={`back ${flipped ? 'flipped' : ''}`}>
-          <p>{certificate.additionalInfo}</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default Certificates;

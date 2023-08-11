@@ -8,24 +8,30 @@ import { faHome, faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Nav2() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(window.innerWidth >= 1100);
-
+  const [isOverlapping, setIsOverlapping] = React.useState(false); 
+  
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleResize = () => {
+    const shouldOverlap = window.innerWidth < 1100;
+    setIsMenuOpen(!shouldOverlap);
+    setIsOverlapping(shouldOverlap);
+  };
+
   React.useEffect(() => {
-    const handleResize = () => {
-      setIsMenuOpen(window.innerWidth >= 1100);
-    };
     handleResize();
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
+
   return (
-    <Navbar className="nav2">
+    <Navbar className={`nav2 ${isOverlapping ? "nav2-blur" : ""}`}>
       {isMenuOpen && window.innerWidth < 1100 && (
         <NavItem className="nav2-menu-icon" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} className="nav2-icon" />
