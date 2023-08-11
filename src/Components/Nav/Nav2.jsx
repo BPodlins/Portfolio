@@ -14,13 +14,11 @@ function Nav2() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleResize = () => {
-    const shouldOverlap = window.innerWidth < 1100;
-    setIsMenuOpen(!shouldOverlap);
-    setIsOverlapping(shouldOverlap);
-  };
-
   React.useEffect(() => {
+    const handleResize = () => {
+      setIsMenuOpen(window.innerWidth >= 1100);
+    };
+
     handleResize();
     window.addEventListener('resize', handleResize);
 
@@ -29,9 +27,8 @@ function Nav2() {
     };
   }, []);
 
-
   return (
-    <Navbar className={`nav2 ${isOverlapping ? "nav2-blur" : ""}`}>
+    <Navbar className={`nav2 ${isOverlapping && window.innerWidth > 1100 ? "nav2-blur" : ""}`}>
       {isMenuOpen && window.innerWidth < 1100 && (
         <NavItem className="nav2-menu-icon" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} className="nav2-icon" />

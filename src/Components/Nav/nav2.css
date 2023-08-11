@@ -1,5 +1,5 @@
 .nav2 {
-  margin-top: 35px;
+  height: 60px;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -9,6 +9,7 @@
   padding: 20px;
   flex-direction: row; 
   align-items: center;
+  z-index: 2;
 }
 
 .nav2.nav2-blur {
@@ -128,8 +129,7 @@
   }
 
   .nav2-menu-icon {
-    position: relative; /
-    left: 50%; 
+    position: relative; 
     transform: translateX(-50%); 
     font-size: 30px;
     margin-bottom: 20px;
@@ -146,4 +146,11 @@
   }
 
   
+}
+
+@media (min-width: 1100px) {
+  .nav2 {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
 }
