@@ -4,11 +4,15 @@ const Certificate = require('./Models/certificate.js');
 const Project = require('./Models/project.js');
 const ejs = require('ejs');
 
+router.get('/', async (req, res) => {
+    res.render("../src/Components/Home/Home");
+});
 
 router.get('/certificates', async (req, res) => {
     try {
         const certificates = await Certificate.find();
         res.json(certificates);
+        res.render("../src/Components/Certificates/Certificates")
     } catch (error) {
         console.error('Error fetching certificates:', error);
         res.status(500).json({ error: 'Failed to fetch certificates' });
