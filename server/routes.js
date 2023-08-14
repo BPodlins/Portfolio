@@ -5,7 +5,7 @@ const Project = require('./Models/project.js');
 const ejs = require('ejs');
 
 router.get('/', async (req, res) => {
-    res.render("../src/Components/Home/Home");
+    res.sendFile("../src/Components/Home/Home");
 });
 
 router.get('/certificates', async (req, res) => {
