@@ -2,14 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Certificate = require('./Models/certificate.js');
 const Project = require('./Models/project.js');
+const ejs = require('ejs');
 
-router.get("/", (req, res) => {
-    res.render("home");
-});
-
-router.get("/about", (req, res) => {
-    res.render("about");
-});
 
 router.get('/certificates', async (req, res) => {
     try {
@@ -31,8 +25,5 @@ router.get('/projects', async (req, res) => {
     }
 });
 
-router.get("/contact", (req, res) => {
-    res.render("contact");
-});
 
 module.exports = router;
