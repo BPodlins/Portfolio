@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 const cors = require('cors'); 
+const ejs = require('ejs');
 require('dotenv').config();
 
 const dbUrl = process.env.DB_URL;
