@@ -6,3 +6,5 @@ My portfolio web app
 - CSS
 - React
 - MongoDB Atlas
+- Node
+- Render
