@@ -16,3 +16,9 @@
     transition-delay: 0.02s;
     opacity: 0.6;
   }
+
+  @media (max-width: 480px) {
+    .custom-cursor{
+    background-color: none;
+    }
+  }
