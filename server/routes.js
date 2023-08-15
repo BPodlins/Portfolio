@@ -4,9 +4,7 @@ const Certificate = require('./Models/certificate.js');
 const Project = require('./Models/project.js');
 const ejs = require('ejs');
 
-router.get('/', async (req, res) => {
-    res.sendFile("../src/Components/Home/Home");
-});
+
 
 router.get('/certificates', async (req, res) => {
     try {
