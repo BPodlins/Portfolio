@@ -7,4 +7,5 @@ My portfolio web app
 - React
 - MongoDB Atlas
 - Node
-- Render
+- AWS (server)
+- Cloudinary (front)
