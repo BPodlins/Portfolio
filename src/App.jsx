@@ -28,13 +28,13 @@ function AppContent() {
 
   useEffect(() => {
     
-    fetch('http://localhost:8000/certificates')
+    fetch('https://z477vrt9e4.us-east-1.awsapprunner.com/certificates')
       .then((res) => res.json())
       .then((data) => setCertificates(data))
       .catch((error) => console.error('Error fetching certificates:', error));
 
     
-    fetch('http://localhost:8000/projects')
+    fetch('https://z477vrt9e4.us-east-1.awsapprunner.com/projects')
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((error) => console.error('Error fetching projects:', error));

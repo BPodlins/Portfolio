@@ -4,8 +4,6 @@ const Certificate = require('./Models/certificate.js');
 const Project = require('./Models/project.js');
 const ejs = require('ejs');
 
-
-
 router.get('/certificates', async (req, res) => {
     try {
         const certificates = await Certificate.find();
