@@ -1,5 +1,7 @@
 # Portfolio
-My portfolio web app
+https://bartoszpodlinski.net/
+
+Web app with information about me, my certificates, projects and socials
 
 ## Tech stack:
 - JavaScript
