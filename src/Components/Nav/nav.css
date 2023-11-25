@@ -35,8 +35,7 @@
 }
 
 .nav-button:hover {
-  color: rgba(255, 255, 255, 0.717);
-  background-color: #3c1053;
+  color: rgba(255, 255, 255, 1);
   transition-delay: 0.02s;
   opacity: 0.6;
 }

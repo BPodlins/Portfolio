@@ -36,7 +36,7 @@
 }
 
 .nav2-icon:hover {
-  color: rgba(255, 255, 255, 0.717);
+  color: rgba(255, 255, 255, 1);
   transition-delay: 0.02s;
   opacity: 0.6;
 }

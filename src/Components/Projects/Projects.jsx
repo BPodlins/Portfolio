@@ -27,10 +27,14 @@ function Projects({ projects }) {
   const filterProjects = (project) => {
     const projectCategories = project.category;
     const checkedCategories = Object.entries(checkedItems)
-      .filter(([category, isChecked]) => isChecked)
-      .map(([category]) => category);
-  
-    return checkedCategories.length === 0 || projectCategories.some(category => checkedCategories.includes(category));
+        .filter(([category, isChecked]) => isChecked)
+        .map(([category]) => category);
+
+    if (checkedCategories.length === 0) {
+      return true;
+    } else {
+      return checkedCategories.every(category => projectCategories.includes(category));
+    }
   };
 
 
@@ -72,11 +76,11 @@ function Projects({ projects }) {
               <label>
                 <input
                   type="checkbox"
-                  name="Selenium"
+                  name="Spring"
                   defaultChecked={checkedItems.Spring}
                   onChange={handleCheckboxChange}
                 />{' '}
-                Selenium
+                Spring
               </label>
             </li>
             <li>

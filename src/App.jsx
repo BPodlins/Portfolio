@@ -55,7 +55,7 @@ function AppContent() {
 
   return (
     <>
-      <div className="background"></div>
+      <div className="background">
       <TransitionGroup>
         <CSSTransition
           key={location.key}
@@ -85,6 +85,7 @@ function AppContent() {
         </CSSTransition>
       </TransitionGroup>
       <CustomCursor />
+      </div>
     </>
   );
 }
